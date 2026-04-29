@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>S&L Contact Submissions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        #searchInput { margin-bottom: 15px; }
+        .is-done { text-decoration: line-through; opacity: 0.5; }
+    </style>
+</head>
+<body class="container mt-5">
+    <h2>Submitted Contact Forms</h2>
+
+    <input type="text" id="searchInput" class="form-control" placeholder="Search by name, email, address, or message">
+
+    <table class="table table-striped" id="contactsTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Message</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each entries}}
+                <tr class="{{#if isCompleted}}is-done{{/if}}">
+                    <td>{{firstName}} {{lastName}}</td>
+                    <td>{{email}}</td>
+                    <td>{{address}}</td>
+                    <td>{{query}}</td>
+                    <td>
+                        <div class="d-flex align-items-center gap-2">
+                            <form action="/toggle-status/{{_id}}" method="POST" style="margin:0;">
+                                <button type="submit" class="btn {{#if isCompleted}}btn-success{{else}}btn-outline-secondary{{/if}} btn-sm">
+                                    {{#if isCompleted}}<i class="bi bi-check-circle"></i> Completed{{else}}Mark Done{{/if}}
+                                </button>
+                            </form>
+                            <form action="/delete/{{_id}}" method="POST" style="margin:0;" onsubmit="return confirm('Are you sure you want to delete?');">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <a href="/home" class="btn btn-primary">Back to Home Page</a>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const table = document.getElementById('contactsTable').getElementsByTagName('tbody')[0];
+
+        searchInput.addEventListener('keyup', function() {
+            const filter = searchInput.value.toLowerCase();
+            const rows = table.getElementsByTagName('tr');
+
+            for (let i = 0; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName('td');
+                let match = false;
+                for (let j = 0; j < cells.length; j++) {
+                    if (cells[j].textContent.toLowerCase().includes(filter)) {
+                        match = true;
+                        break;
+                    }
+                }
+                rows[i].style.display = match ? '' : 'none';
+            }
+        });
+    </script>
+</body>
+</html>
