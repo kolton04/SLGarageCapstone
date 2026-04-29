@@ -5,8 +5,6 @@ const fs = require("fs");
 const dataPath = path.join(__dirname, 'data.json');
 const mongoose = require("mongoose");
 const expressHandlebars = require('express-handlebars');
-const nodemailer = require("nodemailer");
-
 
 const app = express();
 dotenv.config();
@@ -34,7 +32,6 @@ const submissionSchema = new mongoose.Schema({
 });
 
 const submission = mongoose.model('submission', submissionSchema);
-
 
 // home route
 app.get("/", (req, res) => {
@@ -65,7 +62,6 @@ app.get("/services.html", (req, res) => {
   res.redirect("/services");
 });
 
-
 app.get("/contact", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "contact.html"));
 });
@@ -74,56 +70,52 @@ app.get("/contact.html", (req, res) => {
   res.redirect("/contact");
 });
 
-
-// setup server
-
+// route for google review page
+app.get("/review", (req, res) => {
+  res.redirect("https://www.google.com/search?q=S%26L+Garage+Door");
+});
 
 app.post('/submit-form', async (req, res) => {
     const { firstName, lastName, email, address, query } = req.body;
 
+    if(!firstName?.trim() || !email?.trim() || !query?.trim()) {
+      return res.redirect(req.get('referer') || '/');
+    }
+
     try {
-        const newEntry = new submission({ firstName, lastName, email, address, query, isCompleted: false });
-        await newEntry.save();
-
-        res.send(`
-            <!DOCTYPE html>
-            <html>
-            <body style="text-align: center; padding: 50px; font-family: sans-serif;">
-                <h1 style="color: #d9534f;">Submission Received!</h1>
-                <p>Thank you, ${firstName}. We will get back to you shortly.</p>
-                <a href="/home" style="color: red; font-weight: bold;">Return Home</a>
-            </body>
-            </html>
-        `);
-
-        const transporter = nodemailer.createTransport({
-        host: 'smtp.ethereal.email',
-        port: 465, 
-        secure: true,
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS
-          }
-        });
-
-        transporter.sendMail({
-            from: '"S&L Website" <noreply@slgaragedoor.com>',
-            to: process.env.EMAIL_USER,
-            subject: `New Lead: ${firstName} ${lastName}`,
-            html: `<p>New message from ${firstName} ${lastName} regarding: ${query}</p>`
-        }).catch(err => console.log("Background email error:", err));
-
-    } catch (dbErr) {
-        res.status(500).send("Database Error");
+      const newEntry = new submission({
+          ...req.body,
+          isCompleted: false
+      });
+      await newEntry.save();
+      
+      res.send(`
+          <!DOCTYPE html>
+          <html>
+          <head><title>Success</title></head>
+          <body style="text-align: center; padding: 50px; font-family: sans-serif;">
+              <div style="max-width: 600px; margin: auto; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+                  <h1 style="color: #d9534f;">Submission Received!</h1>
+                  <p>Thank you, ${firstName}. Your request has been sent to S&L Garage Door.</p>
+                  <a href="/home" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #d9534f; color: white; text-decoration: none; border-radius: 5px;">Return Home</a>
+              </div>
+          </body>
+          </html>
+      `);
+    }
+    catch (err){
+      console.error("Database Save Error: ", err);
+      res.status(500).send("Database Error");
     }
 });
 
 app.get('/view-data', async (req, res) => {
+    // Admin password check
     if (req.query.pw !== process.env.ADMIN_PW) {
         return res.status(403).send('Access Denied');
     }
     const data = await submission.find().lean();
-    res.render('display', { entries: data });
+    res.render('display', {entries: data});
 });
 
 app.post('/delete/:id', async (req, res) => {
@@ -150,10 +142,7 @@ app.post('/toggle-status/:id', async (req, res) => {
     }
 });
 
-app.get("/review", (req, res) => {
-  res.redirect("https://www.google.com/search?client=firefox-b-1-d&hs=3Knp&sca_esv=e49a19319df6f3e9&biw=1280&bih=587&sxsrf=ANbL-n7mPhLz_ucB2RKAnyk-_VPCUNwHIA:1777428497117&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOYKkwHfOj3MbFNveJnjFM7k0-UxBg-rZuZ-jeit8CnGuHiZ_WO2c7C9a4xskU6RHj87weUmMXuUjJV61Py28-97sWvzWaieQ_VNwEfhy59iG3kQYHg%3D%3D&q=S+%26+L+Garage+Door+Reviews&sa=X&ved=2ahUKEwi1wbyR_ZGUAxWnlSsGHf-MOhIQ0bkNegQIHxAF");
-});
-
+// setup server
 app.listen(HTTP_PORT, () => {
   console.log(`App listening on port: ${HTTP_PORT}`);
 });
