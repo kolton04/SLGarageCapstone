@@ -82,62 +82,35 @@ app.post('/submit-form', async (req, res) => {
     const { firstName, lastName, email, address, query } = req.body;
 
     try {
-        const newEntry = new submission({
-            firstName,
-            lastName,
-            email,
-            address,
-            query,
-            isCompleted: false
-        });
+        const newEntry = new submission({ firstName, lastName, email, address, query, isCompleted: false });
         await newEntry.save();
-
-        try {
-            const transporter = nodemailer.createTransport({
-                host: 'smtp.ethereal.email',
-                port: 587,
-                auth: {
-                    user: process.env.EMAIL_USER,
-                    pass: process.env.EMAIL_PASS
-                }
-            });
-
-            const adminLink = `${req.protocol}://${req.get('host')}/view-data?pw=${process.env.ADMIN_PW}`;
-
-            await transporter.sendMail({
-                from: '"S&L Website" <noreply@slgarage.com>',
-                to: 'owner@protonmail.com',
-                subject: `[NEW LEAD] Inquiry from ${firstName} ${lastName}`,
-                html: `
-                    <h3>New Inquiry Details:</h3>
-                    <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-                    <p><strong>Email:</strong> ${email}</p>
-                    <p><strong>Address:</strong> ${address}</p>
-                    <p><strong>Message:</strong> ${query}</p>
-                    <br>
-                    <a href="${adminLink}" style="background-color: #dc3545; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">View All Leads</a>
-                `
-            });
-        } catch (mailErr) {
-            console.log(mailErr);
-        }
 
         res.send(`
             <!DOCTYPE html>
             <html>
-            <head>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-                <title>Success | S&L Garage</title>
-            </head>
-            <body class="d-flex align-items-center justify-content-center" style="height: 100vh; background-color: #f8f9fa;">
-                <div class="text-center p-5 shadow bg-white rounded" style="max-width: 500px; border-top: 5px solid #dc3545;">
-                    <h2 class="text-danger fw-bold">Message Sent!</h2>
-                    <p class="lead">Thank you, ${firstName}. We have received your request.</p>
-                    <a href="/home" class="btn btn-danger mt-3">Return Home</a>
-                </div>
+            <body style="text-align: center; padding: 50px; font-family: sans-serif;">
+                <h1 style="color: #d9534f;">Submission Received!</h1>
+                <p>Thank you, ${firstName}. We will get back to you shortly.</p>
+                <a href="/home" style="color: red; font-weight: bold;">Return Home</a>
             </body>
             </html>
         `);
+
+        const transporter = nodemailer.createTransport({
+            host: 'smtp.ethereal.email',
+            port: 587,
+            auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS
+            }
+        });
+
+        transporter.sendMail({
+            from: '"S&L Website" <noreply@slgaragedoor.com>',
+            to: process.env.EMAIL_USER,
+            subject: `New Lead: ${firstName} ${lastName}`,
+            html: `<p>New message from ${firstName} ${lastName} regarding: ${query}</p>`
+        }).catch(err => console.log("Background email error:", err));
 
     } catch (dbErr) {
         res.status(500).send("Database Error");
