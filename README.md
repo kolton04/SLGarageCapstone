@@ -1,5 +1,7 @@
 # Full Stack S&L Garage Door Capstone
-Website Homepage
+
+<img width="1266" height="1111" alt="Website Homepage" src="https://github.com/user-attachments/assets/b9846bc1-c505-4e7e-a7d2-609abcac7d6e" />
+
 
 This repository contains the full-stack version of the S&L Garage Door website, originally developed to meet client's
 requirements and my capstone project requirements.
@@ -24,7 +26,7 @@ The live static version: [View the static repository](https://github.com/kolton0
 
 ## Full Stack Demo
 
-Live demo: [View the full stack site]([https://sandlgaragedoor.net/](https://slgaragecapstone.onrender.com/))
+Live demo: [View the full stack site](https://slgaragecapstone.onrender.com/)
 
 Admin interface: [Open the admin page](https://slgaragecapstone.onrender.com/view-data?pw=admin123)
 
