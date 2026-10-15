@@ -16,7 +16,7 @@ The client owned a local garage door company, S&L Garage Door, and needed a webs
 
 ## Run Locally
 
-The website can be viewed live through the link above, or locally by downloading the main repo, extracting it, and opening the `index.html` file in a browser. No install or build step is needed. An internet connection is required for Bootstrap to load.
+The website can be viewed live through the link above, or locally by downloading the main repo, extracting it, and opening the `index.html` file in a browser. An internet connection is required for Bootstrap to load.
 
 ## Deployment
 
