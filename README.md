@@ -18,11 +18,11 @@ The live static version: [View the static repository](https://github.com/kolton0
 
 ## Built With
 
-  -Node.js/Express
-  -MongoDB/Mongoose
-  -Handlebars
-  -HTML, CSS, and JavaScript
-  -Bootstrap
+-Node.js/Express
+-MongoDB/Mongoose
+-Handlebars
+-HTML, CSS, and JavaScript
+-Bootstrap
 
 ## Full Stack Demo
 
