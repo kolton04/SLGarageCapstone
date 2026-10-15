@@ -3,7 +3,7 @@
 <img width="1268" height="1047" alt="Website Homepage" src="https://github.com/user-attachments/assets/83f24efb-b85f-42aa-9c8b-64d9f434b0b2" />
 
 
-This repository contains the full-stack version of the S&L Garage Door website, originally developed to meet request of the client and my capstone project.
+This repository contains the full-stack version of the S&L Garage Door website, originally developed to meet client's requirements and my capstone project requirements.
 
 The website includes a contact form, a MongoDB for storing customer messages, and an admin interface for managing submitted messages.
 
