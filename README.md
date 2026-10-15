@@ -3,34 +3,41 @@
 <img width="1268" height="1047" alt="Website Homepage" src="https://github.com/user-attachments/assets/83f24efb-b85f-42aa-9c8b-64d9f434b0b2" />
 
 
-This is the full stack version of the Capstone website. This version was originally made at client's request and to fulfill assignment
-requirements. The live static version is here: 
-[Static Version on Main](https://github.com/kolton04/SLGarageCapstone)
+This repository contains the full-stack version of the S&L Garage Door website, originally developed to meet request of the client and my capstone project.
+
+The website includes a contact form, a MongoDB for storing customer messages, and an admin interface for managing submitted messages.
+
+The live static version: [View the static repository](https://github.com/kolton04/SLGarageCapstone)
 
 ## Features
 
-- Admin page
-- Database for creating, reading, and deleting customer messages
-- Contact page 
+- Responsive garage door business website
+- Contact form for customer messages
+- MongoDB integration for message persistence
+- Admin interface for viewing, editing, and deleting messages
 
 ## Built With
-- Node.js
-- Express
-- Handlebars
+- Node.js/Express
 - MongoDB/Mongoose
+- Handlebars
+- HTML, CSS, and JavaScript
 - Bootstrap
-- CSS
 
 ## Full Stack Demo
 
-The demo of this site exists on render [Full Stack Demo](https://slgaragecapstone.onrender.com/).
+Live demo: [View the full stack site](https://slgaragecapstone.onrender.com/).
 
-The contact page works. It can be tested by sending a message on the contact page then visiting the admin link. [Admin Page](https://slgaragecapstone.onrender.com/view-data?pw=admin123)
+Admin interface: [Open the admin page](https://slgaragecapstone.onrender.com/view-data?pw=admin123)
 
-Note: this link never got secured because the client told us he wanted a static site so we quit developing this part of the site.
+To test the contact page:
 
-## Why It Was Replaced
+1. Submit a sample message through contact page
+2. Open the admin interface
+3. View the submitted message
+4. Test the available message management operations
 
-This version was replaced after demonstrating the site to the client. He realized he didn't want to have to check his email/website 
-to generate new leads on top of answering phone calls so he requested a simplified, static version of the site that just acts a 
-virtual business card.
+## Project Outcome
+
+After reviewing this version of the website, the client decided that a simpler static website better suited their needs. Their priority was to provide visitors with business information and encourage phone inquiries without needing to manage and online message system.
+
+I retained the full-stack implementations demonstrating my experience with backend development, database integration, and CRUD functionality, while the client facing website was simplified to meet his needs. [Visit the client site](https://sandlgaragedoor.net/)
