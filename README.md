@@ -1,4 +1,4 @@
-# S & L Garage Door Capstone Website
+# S&L Garage Door Capstone Website
 
 <img width="1270" height="1114" alt="Website Homepage" src="https://github.com/user-attachments/assets/5fd52d7f-c6d9-4ee3-b28e-bc242b0c9c8b" />
 
@@ -24,7 +24,7 @@ It was deployed using Porkbun for the domain and Netlify for the hosting.
 
 ## Full Stack Version
 
-An unhosted full stack version, built for the initial requests of the client and the capstone assignment, can be accessed here: [S & L Garage Full Stack Branch](https://github.com/kolton04/SLGarageCapstone/tree/GarageSiteFullStack)
+An unhosted full stack version, built for the initial requests of the client and the capstone assignment, can be accessed here: [S&L Garage Full Stack Branch](https://github.com/kolton04/SLGarageCapstone/tree/GarageSiteFullStack)
 
 ## What I learned
 
