@@ -11,18 +11,19 @@ managing submitted messages.
 
 The live static version: [View the static repository](https://github.com/kolton04/SLGarageCapstone/tree/main)
 ## Features
-  -Responsive garage door business website
-  -Contact form for customer messages
-  -MongoDB integration for message persistence
-  -Admin interface for viewing, editing, and deleting messages
+
+- Responsive garage door business website
+- Contact form for customer messages
+- MongoDB integration for message persistence
+- Admin interface for viewing, editing, and deleting messages
 
 ## Built With
 
--Node.js/Express
--MongoDB/Mongoose
--Handlebars
--HTML, CSS, and JavaScript
--Bootstrap
+- Node.js/Express
+- MongoDB/Mongoose
+- Handlebars
+- HTML, CSS, and JavaScript
+- Bootstrap
 
 ## Full Stack Demo
 
