@@ -1,33 +1,43 @@
-# S&L Garage Door Capstone Website
+# Full Stack S&L Garage Door Capstone
 
-<img width="1270" height="1114" alt="Website Homepage" src="https://github.com/user-attachments/assets/5fd52d7f-c6d9-4ee3-b28e-bc242b0c9c8b" />
+<img width="1268" height="1047" alt="Website Homepage" src="https://github.com/user-attachments/assets/83f24efb-b85f-42aa-9c8b-64d9f434b0b2" />
 
-This is a website for a local garage door business. It is live here: [sandlgaragedoor.net](https://sandlgaragedoor.net/)
 
-## Background
+This repository contains the full-stack version of the S&L Garage Door website, originally developed to meet client's requirements and my capstone project requirements.
 
-The client owned a local garage door company, S&L Garage Door, and needed a website to modernize his business. Initially, a full stack version of the site was developed, but the client decided to go with a static version to simplify work on his end.
+The website includes a contact form, a MongoDB for storing customer messages, and an admin interface for managing submitted messages.
+
+The live static version: [View the static repository](https://github.com/kolton04/SLGarageCapstone)
+
+## Features
+
+- Responsive garage door business website
+- Contact form for customer messages
+- MongoDB integration for message persistence
+- Admin interface for viewing, editing, and deleting messages
 
 ## Built With
-
-- JavaScript
+- Node.js/Express
+- MongoDB/Mongoose
+- Handlebars
+- HTML, CSS, and JavaScript
 - Bootstrap
-- CSS
 
-## Run Locally
+## Full Stack Demo
 
-The website can be viewed live through the link above, or locally by downloading the main repo, extracting it, and opening the `index.html` file in a browser. An internet connection is required for Bootstrap to load.
+Live demo: [View the full stack site](https://slgaragecapstone.onrender.com/).
 
-## Deployment
+Admin interface: [Open the admin page](https://slgaragecapstone.onrender.com/view-data?pw=admin123)
 
-It was deployed using Porkbun for the domain and Netlify for the hosting.
+To test the contact page:
 
-## Full Stack Version
+1. Submit a sample message through contact page
+2. Open the admin interface
+3. View the submitted message
+4. Test the available message management operations
 
-An unhosted full stack version, built for the initial requests of the client and the capstone assignment, can be accessed here: [S&L Garage Full Stack Branch](https://github.com/kolton04/SLGarageCapstone/tree/GarageSiteFullStack)
+## Project Outcome
 
-## What I learned
+After reviewing this version of the website, the client decided that a simpler static website better suited their needs. Their priority was to provide visitors with business information and encourage phone inquiries without needing to manage and online message system.
 
-I learned database design and backend routing by building the full stack version and talking through designs
-and roadblocks with my group. With the scope change requested by the client, I learned to ask more follow-up questions up
-front so what we deliver matches what the client needs.
+I retained the full-stack implementations demonstrating my experience with backend development, database integration, and CRUD functionality, while the client facing website was simplified to meet his needs. [Visit the client site](https://sandlgaragedoor.net/)
