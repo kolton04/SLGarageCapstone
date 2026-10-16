@@ -89,20 +89,9 @@
         </div>
     </section>
 
-    <section class="py-5 text-white" style="background-color: #ad313e;">
-        <div class="container text-center">
-            <h2 class="mb-4">What Our Customers Say</h2>
-            <div id="reviewsContainer" class="mx-auto py-4" style="max-width: 700px; min-height: 150px;">
-                <i class="bi bi-quote fs-1 opacity-50"></i>
-                <p id="reviews" class="fs-4 italic px-4"></p>
-                <div class="mt-4">
-                    <button type="button" onclick="prevReview()" class="btn btn-outline-light rounded-circle me-2"><i class="bi bi-chevron-left"></i></button>
-                    <button type="button" onclick="nextReview()" class="btn btn-outline-light rounded-circle"><i class="bi bi-chevron-right"></i></button>
-                </div>
-            </div>
-            <a href="/review" target="_blank" class="btn btn-light mt-4 px-4 text-white">Leave a Google Review</a>
-        </div>
-    </section>
+    <div class="container py-6 text-center bg-danger">
+        <a href="https://search.google.com/local/writereview?placeid=ChIJbQFUgOlvFIgR9lphYDybi2I" target="_blank" rel="noopener" class="btn btn-light mt-4 px-4 text-white">Leave a Google Review</a>
+    </div>
 
     <footer class="mt-5 border-top border-4 border-danger py-5 bg-white w-100">
         <div class="container-fluid px-4 px-lg-5">
@@ -125,25 +114,5 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        const reviews = [
-            "Came out the day I called, in freezing temperature, to fix my door so I could get my car out of the garage - Linda",
-            "They responded very quickly and got our broken spring repaired as quickly as they could. Professional and fairly priced! - Matt",
-            "Steve does a fantastic job. We have purchased two doors which he installed. Quick, efficient, and affordable. - Bobby"
-        ];
-        let i = 0;
-        const reviewsText = document.getElementById("reviews");
-        reviewsText.innerText = reviews[i];
-
-        function nextReview() {
-            i = (i + 1) % reviews.length;
-            reviewsText.innerText = reviews[i];
-        }
-        function prevReview() {
-            i = (i - 1 + reviews.length) % reviews.length;
-            reviewsText.innerText = reviews[i];
-        }
-    </script>
 </body>
 </html>
