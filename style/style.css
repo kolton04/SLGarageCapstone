@@ -33,21 +33,22 @@ th {
     
     }
 
-    a {
-    text-decoration: none;
-}
-a:link{
+#callBtn:link{
     color: black;
     background-color: transparent;
 }
-a:visited{
+
+
+#callBtn:hover{
+    color: white;
+    background-color: #dc3545;
+
+}
+
+#reviewBtn:hover{
     color: black;
     background-color: transparent;
 }
-a:active{
-    color: red;
-    background-color: transparent;
-    }
 
 .location{
     display: flex;
