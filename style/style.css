@@ -96,10 +96,9 @@ h3{
     width: 100%;
 }
 
-header img {
-    max-width: 100%;
+header img{
     transition: transform 0.3s ease;
-    height: 100px !important; 
+    max-width: 100%;
     display: block;
 }
 
