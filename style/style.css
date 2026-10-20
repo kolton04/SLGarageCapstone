@@ -115,7 +115,7 @@ body {
 }
 
 /* This allows the main content area to grow and push the footer down */
-.container.my-5 {
+.container-fluid.my-5 {
     flex: 1 0 auto;
 }
 
