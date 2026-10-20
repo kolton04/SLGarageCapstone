@@ -1,6 +1,4 @@
 :root{
-    --blue-outline: #0c4e9c;
-    --red-outline: #c10f2e;
     --cardImg-darkbg: #495057;
     --cardImg-lightbg: #6c757d;
 }
@@ -22,14 +20,20 @@ h3{
 
 }
 
+#callBtn-resources:hover{
+    color: #dc3545;
+    background-color: white;
+
+}
+
 #reviewBtn:hover{
     color: black;
     background-color: transparent;
 }
 
 .supplier-card {
-    outline-style: solid;
-    outline-width: 4px;
+    border: none;
+    border-top: 5px solid #dc3545;
 }
 
 .dark-bg{
@@ -40,14 +44,6 @@ h3{
     background: var(--cardImg-lightbg);
 }
 
-.red-card{
-    outline-color: var(--red-outline);
-}
-
-.blue-card{
-    outline-color: var(--blue-outline);
-}
-
 .supplier-card .card-body{
     padding: 0.25rem;
     @media screen and (max-width: 384px){
@@ -55,12 +51,22 @@ h3{
     }
 }
 
-.supplier-card .card-img{
-    height: 130px; 
-    object-fit: contain;
+.supplier-btn {
+    min-width: 145px;
+    background-color: #ffff !important;
+    color: #000000 !important;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    transition: all 0.2s ease-in-out;
 }
 
-/* Make the phone link look cleaner*/
+.supplier-btn:hover{
+    background-color: #dc3545 !important;
+    color: white !important;
+    transform: scale(1.05)
+}
+
 .btn-outline-danger {
     transition: all 0.2s ease-in-out;
 }
