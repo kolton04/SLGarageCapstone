@@ -24,7 +24,6 @@ h3{
     color: black;
     background-color: #E8E5DE;
     transform: scale(1.02);
-
 }
 
 .service-link{
@@ -33,7 +32,7 @@ h3{
 }
 
 .service-link:hover{
-    background-color: #dc3545 !important;
+    background-color: black !important;
     color: white !important;
     transform: scale(1.02);
 }
@@ -141,14 +140,12 @@ body {
     margin: 0;
 }
 
-/* This allows the main content area to grow and push the footer down */
-.container.my-5 {
+main {
     flex: 1 0 auto;
 }
 
 /* Keeps the footer at the bottom */
 footer {
     background-color: #E8E5DE;
-    flex-shrink: 0;
-    
+    flex-shrink: 0;   
 }
