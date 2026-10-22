@@ -37,9 +37,14 @@ h3{
     transform: scale(1.02);
 }
 
-#reviewBtn:hover{
+.reviewBtn:link{
     color: black;
     background-color: transparent;
+}
+
+.reviewBtn:hover{
+    color: white;
+    background-color: #dc3545;
 }
 
 .supplier-footer {
