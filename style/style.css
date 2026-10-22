@@ -136,6 +136,10 @@ header img:hover {
     transform: scale(1.02);
 }
 
+.cta-banner {
+    font-family: inherit;
+}
+
 /* Ensure the body takes up at least the full height of the screen */
 body {
     background-color: #ebeae5;
